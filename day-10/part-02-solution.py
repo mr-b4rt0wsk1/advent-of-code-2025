@@ -6,7 +6,7 @@ def find_fewest_presses(end_joltage, buttons):
     # initialize a Linear Programming problem with the objective to MINIMIZE
     problem = pulp.LpProblem("FewestPresses", pulp.LpMinimize)
     
-    # create a variable for each button and add them (and their sum to minimize) the problem
+    # create a variable for each button and add them (and their sum to minimize) to the problem
     variables = [pulp.LpVariable(f"x{i}", lowBound=0, cat='Integer') for i in range(len(buttons))]
     problem += pulp.lpSum(variables)
 
